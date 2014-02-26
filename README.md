@@ -1,4 +1,6 @@
-rails_template
+my rails_template
 ==============
 
-my rails template
+## Create project
+run
+    rails _4.0.3_ new [app_name] -d mysql -T -m rails_template/template.rb
