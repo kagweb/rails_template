@@ -1,33 +1,33 @@
 # coding: utf-8
-# rails _4.0.3_ new [app_name] -d mysql -T -m rails_template/template.rb
+# rails _4.1.1_ new [app_name] -d mysql -T -m rails_template/template.rb
 
 dir = File.dirname(__FILE__)
 
 comment_lines 'Gemfile', "gem 'turbolinks'"
 
-gem 'compass-rails', '~> 1.1.3'
-gem 'active_decorator', '~> 0.3.4'
-gem 'squeel', '~> 1.1.1'
+gem 'compass-rails'
+gem 'active_decorator'
+# gem 'squeel'
 gem 'yajl-ruby'
-gem 'kaminari', '~> 0.15.1'
-gem 'active_attr', '~> 0.8.2'
-gem 'carrierwave', '~> 0.9.0'
-gem 'carrierwave_backgrounder', '~> 0.3.0'
-gem 'mini_magick', '~> 3.7.0'
-gem 'simple_form', '~> 3.0.1'
+gem 'kaminari'
+gem 'active_attr'
+gem 'carrierwave'
+gem 'carrierwave_backgrounder'
+gem 'mini_magick'
+gem 'simple_form'
 gem 'paranoia', '2.0.1' #'~> 2.0' 2.0.2の不具合のためとりあえず
-gem 'ransack', '~> 1.1.0'
+# gem 'ransack', '~> 1.1.0'
 
 use_bootstrap = if yes?('Use Bootstrap?')
                   uncomment_lines 'Gemfile', "gem 'therubyracer', platforms: :ruby"
-                  gem 'bootstrap-sass', '~> 3.1.1'
+                  gem 'bootstrap-sass'
                   true
                 else
                   false
                 end
 
 use_sorcery = if yes?('Use sorcery?')
-                gem 'sorcery', '~> 0.8.5'
+                gem 'sorcery'
                 true
               else
                 false
@@ -82,9 +82,9 @@ if use_bootstrap
   generate 'simple_form:install', '--bootstrap'
   # Simple form setting
   # ----------------------------------------------------------------
-  comment_lines 'config/initializers/simple_form.rb', "config.button_class = 'btn btn-default'"
-  comment_lines 'config/initializers/simple_form.rb', "config.form_class = 'form-horizontal'"
-  comment_lines 'config/initializers/simple_form.rb', "config.error_notification_class = 'alert alert-danger'"
+  # comment_lines 'config/initializers/simple_form.rb', "config.button_class = 'btn btn-default'"
+  # comment_lines 'config/initializers/simple_form.rb', "config.form_class = 'form-horizontal'"
+  # comment_lines 'config/initializers/simple_form.rb', "config.error_notification_class = 'alert alert-danger'"
 else
   generate 'simple_form:install'
 end
@@ -132,9 +132,6 @@ end
 remove_file '.gitignore'
 create_file '.gitignore' do
   body = <<EOS
-# Ignore schema.rb
-/db/schema.rb
-
 # Ignore bundler config.
 /.bundle
 
